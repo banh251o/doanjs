@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa hàng áo thun</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Cửa hàng áo thun</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Trang chủ</a></li>
+                    <li><a href="#products">Sản phẩm</a></li>
+                    <li><a href="#cart">Giỏ hàng</a></li>
+                    <span id="user-info" style="display: none;">Xin chào, <span id="username"></span> (<span id="role"></span>)</span>
+                    <li id="auth-links">
+                        <a href="#login" id="login-link">Đăng nhập</a>
+                        <a href="#register" id="register-link">Đăng ký</a>
+                        <a href="#" id="logout-link" style="display: none;">Đăng xuất</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Đăng nhập/Đăng ký -->
+        <section id="auth-section" class="container" style="display: none;">
+            <div id="login-form">
+                <h2>Đăng nhập</h2>
+                <form id="login">
+                    <input type="text" id="login-username" placeholder="Tên đăng nhập" required>
+                    <input type="password" id="login-password" placeholder="Mật khẩu" required>
+                    <button type="submit">Đăng nhập</button>
+                </form>
+            </div>
+            <div id="register-form" style="display: none;">
+                <h2>Đăng ký</h2>
+                <form id="register">
+                    <input type="text" id="register-username" placeholder="Tên đăng nhập" required>
+                    <input type="password" id="register-password" placeholder="Mật khẩu" required>
+                    <button type="submit">Đăng ký</button>
+                </form>
+            </div>
+        </section>
+
+        
+
+        <!-- Danh sách sản phẩm -->
+        <section id="products-section" class="container">
+            <h2>Danh sách sản phẩm</h2>
+            <!-- Thêm dropdown lọc danh mục tại đây -->
+            <div class="filter-container">
+                <label for="category-filter">Lọc theo danh mục: </label>
+                <select id="category-filter" onchange="filterProducts()">
+                    <option value="">Tất cả danh mục</option>
+                </select>
+                <div id="product-list"></div>
+            <div id="manage-product-form" style="display: none;">
+                <h3>Quản lý sản phẩm</h3>
+                <form id="product-form">
+                    <input type="hidden" id="product-id">
+                    <input type="text" id="product-name" placeholder="Tên sản phẩm" required>
+                    <input type="number" id="product-price" placeholder="Giá" required>
+                    <input type="text" id="product-category" placeholder="Danh mục ID (nếu có)">
+                    <input type="file" id="product-image" accept="image/*">
+                    <button type="submit">Thêm/Sửa sản phẩm</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Giỏ hàng -->
+        <section id="cart-section" class="container">
+            <h2>Giỏ hàng</h2>
+            <div id="cart-list"></div>
+            <button id="checkout-btn" style="display: none;">Thanh toán</button>
+        </section>
+
+        <section id="product-detail-section" class="container" style="display: none;">
+            <h2>Chi tiết sản phẩm</h2>
+            <div id="product-detail"></div>
+            <button onclick="backToProducts()">Quay lại</button>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Cửa hàng áo thun.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
